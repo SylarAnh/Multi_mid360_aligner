@@ -68,7 +68,7 @@ private:
   std::string                 _front_lidar = "/livox/lidar_192_168_1_102";
 
   // real time angular yaw speed
-  double                      _yaw_velocity;
+  double                      _yaw_velocity{};
 
   pcl::PointCloud<PointType> _velo_new_cloud;
   pcl::PointCloud<PointType> _ouster_new_cloud;
@@ -79,9 +79,9 @@ private:
   std::vector<float>                              _hori_msg_yaw_vec;
   std::mutex _mutexHoriQueue;
 
-  uint64                                      _hori_start_stamp ;
-  uint64                                      _hori_start_stamp2 ;
-  uint64                                      _hori_start_stamp3 ;
+  uint64                                      _hori_start_stamp{} ;
+  uint64                                      _hori_start_stamp2{} ;
+  uint64                                      _hori_start_stamp3{} ;
   bool                                        _first_hori = true;
   bool                                        _first_hori2 = true;
   bool                                        _first_hori3 = true;
@@ -247,7 +247,7 @@ public:
     }
   };
 
-  ~LidarsParamEstimator(){};
+  ~LidarsParamEstimator()= default;
 
   /**
    * @brief subscribe raw pointcloud message from Livox lidar and process the data.
