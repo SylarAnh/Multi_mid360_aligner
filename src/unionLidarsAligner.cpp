@@ -13,7 +13,6 @@
 #include <pcl/io/pcd_io.h>
 #include <pcl/registration/icp.h>
 #include "livox_ros_driver/CustomMsg.h"
-#include "lidars_extrinsic_cali.h"
 
 #include <fstream>
 #include <iostream>
@@ -88,6 +87,7 @@ private:
   bool                                        _first_hori3 = true;
 
 
+  bool        _time_offset_initd    = false;
   double      _time_esti_error_th   = 400.0;
   uint64      _time_offset          = 0; //secs (velo_stamp - hori_stamp)
 

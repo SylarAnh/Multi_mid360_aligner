@@ -27,18 +27,14 @@ find_package(PCL REQUIRED)
 
 
 include_directories(
-		include
 		${catkin_INCLUDE_DIRS}
 		${EIGEN3_INCLUDE_DIR}
 		${PCL_INCLUDE_DIRS}
 )
-link_directories(
-		include
-)
 # generate_messages(DEPENDENCIES std_msgs nav_msgs sensor_msgs livox_ros_driver)
 catkin_package(CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs livox_ros_driver
   	       pcl_conversions pcl_ros
-	       eigen_conversions DEPENDS PCL INCLUDE_DIRS include)
+	       eigen_conversions DEPENDS PCL INCLUDE_DIRS)
 
 add_executable(mm_lidarsAligner src/unionLidarsAligner.cpp)
 target_link_libraries(mm_lidarsAligner ${catkin_LIBRARIES} ${PCL_LIBRARIES})
