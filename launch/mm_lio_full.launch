@@ -1,0 +1,16 @@
+<launch>
+    <!-- Launch velo and Livox fusion method -->
+
+    <node name="mm_lidarsAligner" pkg="mm_align" type="mm_lidarsAligner" output="screen">
+        <param name="front_y_axis"     value="0.44444" /> <!-- 雷达标定初值，乘以PI后是xyz顺序的欧拉角， 0.44444对应 PI*4/9-->
+        <param name="front_z_axis"     value="0.75" /> <!-- 雷达标定初值，乘以PI后是xyz顺序的欧拉角， 0.75对应 PI*3/4-->
+        <param name="rear_y_axis"     value="-0.33333" /> <!-- 雷达标定初值，乘以PI后是xyz顺序的欧拉角， -0.33333对应 -PI/3-->
+        <param name="rear_z_axis"     value="0.25" /> <!-- 雷达标定初值，乘以PI后是xyz顺序的欧拉角， 0.25对应 PI/4-->
+        <param name="mid_y_axis"     value="0" />
+        <param name="mid_z_axis"     value="0.25" /> <!-- 雷达标定初值，乘以PI后是xyz顺序的欧拉角， 0.25对应 PI/4-->
+        <param name="mid_lidar"     value="/livox/lidar_192_168_1_180" />
+        <param name="rear_lidar"     value="/livox/lidar_192_168_1_122" />
+        <param name="front_lidar"     value="/livox/lidar_192_168_1_102" />
+    </node>
+
+</launch>
